@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html id="cr1">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gelıma OS Deneme Sürümü</title>
+<link rel="icon" href="Gelima OS.png" type="image/png">
+<style>
+html {
+    cursor: url('fare.png'), auto;
+    user-select:none;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;}
+body {
+    background-image: url('Arkaplan.png');
+    left: 0px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;}
+#pckpt, #rbot {
+    cursor: url('fare.png'), text;
+    border-radius: 5px;
+    color: white;
+    background-color: red;
+    font-size: 10px;}
+#kpt {
+    background-color: orange;
+    font-size: 10px;
+    cursor: url('fare.png'), text;
+    border-radius: 5px;
+    color: white;}
+#tryc, #myfiles, #not, #opait, #ayar, #trmnl, .dosya {
+    display: none;
+    border: solid 1px;
+    position: absolute;
+    bottom: 100px;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.58);
+    height: 300px;
+    width: 300px;
+    top: 0;
+    backdrop-filter: blur(10px);}
+#menu {
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 10px;
+    bottom: 40px;
+    backdrop-filter: blur(30px);
+}
+html::-webkit-scrollbar {
+    display: none;}
+#notxt::-webkit-scrollbar {
+    display: none;}
+#msut {
+    border: solid none;
+    background: none;
+    display: block;}
+.myos {
+    background: none;
+    display: block;
+    height: 100px;
+    width: 75px;
+    margin: 10px;
+    padding: 5px;}
+.myos:hover {
+    border: dotted 1px;
+    margin: 9px;}
+.despro {
+    font-size: 10px;}
+#weos {
+    position: absolute;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.58);
+    top: 0px;
+    border: solid 1px;
+    backdrop-filter: blur(10px);}
+.kptstil {
+    border-radius: 100%;
+    color: white;
+    background-color: red;
+    border-color: black;
+    width: 25px;
+    height: 20px;
+    font-size: 15px;
+    border: 3px;}
+.guccukstil {
+    border-radius: 100%;
+    color: white;
+    background-color: blue;
+    border-color: black;
+    width: 25px;
+    height: 20px;
+    font-size: 15px;
+    border: 3px;}
+.cekmece {
+    border-bottom: black;
+    height: 30px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 20px;}
+#notxt {
+    resize: none;
+    background-color:  rgba(255, 255, 255, 0.58);
+    border-radius: 20px;
+    width: 95%;
+    height: 90%;
+    cursor: url('yazifare.png'), text;}
+#not {
+    height: 500px;
+    width: 600px;}
+.txtop {
+    vertical-align: super;}
+.dosya:hover {
+    background-color: rgba(0, 118, 255, 0.35);}
+.dosya {
+    height: 100px;
+    width: 75px;
+    background: none;
+    transition: 0.5s;}
+#div {
+    border-style: dotted;
+    border-radius: 100%;
+    text-align: center;
+    display: inline;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;}
+#divici {
+    font-size: 20px;
+    color: blue;}
+#ad {
+    font-family: Arial, Helvetica, sans-serif;}
+#acilis {
+    height: 100vh;
+    width: 100%;
+    display: block;
+    border: none;
+    z-index: 9999999;
+    position: absolute;
+    background-image: url('acilis-ekran/ap.png');
+    
+    }
+#trh {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    color: black;
+    z-index: 1;
+}
+.kb, .kb2, .kb3{
+    text-align:center;
+    font-size:24px; 
+    background:red;
+    color:white;
+    
+    }
+    #cm{
+        
+        position:fixed;
+        z-index:10000;
+        width:130px;
+        background:rgba(255, 255, 255, 0.5);
+        transform:scale(0);
+        transform-origin: top left;
+        font-family:Roboto,Arial,sans-serif;
+        font-weight:400;
+        line-height: 26px;
+        border: 1px solid;
+        border-radius: 10px;
+    
+    }
+    #cm.active{
+        transform:scale(1);
+        transition:transform 300ms ease-in-out;
+        
+    }
+    
+    #cm .el{
+        
+        padding:8px 10px;
+        font-size:15px;
+        color:rgb(0, 0, 0);
+    }
+    #cm .el:hover{
+        background: #03a9f473;
+        transition: 1s;
+    }
+    #saat {
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+    color: white;
+    font-size: 60px;
+    }
+    #arac {
+        backdrop-filter: blur(30px);
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        position: fixed;
+    }
+    #getpro {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    height: max-content;
+    width: max-content;
+    position: absolute;
+    }
+    .naber {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-size: 100% 100%;
+    background-color: #ffffff85;
+    }
+    .naberitem {
+        position: absolute;
+        bottom: 0;
+    }
+/*© Tüm hakları saklıdır.*/
+
+</style>
+<script>window.onkeydown=function (gec) {
+if (gec.keyCode==32)
+document.getElementById('acilis').style="display: none;"}
+//////////////////////\/keyboard shortcuts\///////////////
+//*tine and dates*//
+function time() {
+var date = new Date().toLocaleString();
+document.getElementById('trh').innerHTML = date;
+}
+setInterval(time, 1000);
+/////////////////////////////////////////////////////
+function vkt() {
+var date = new Date().toLocaleString();
+document.getElementById('saat').innerHTML = date;
+}
+setInterval(vkt, 1000);
+/////////////////////////////////////////////////////
+window.addEventListener("contextmenu",function(event){
+    event.preventDefault();
+    var contextElement = document.getElementById("cm");
+    contextElement.style.top = event.offsetY + "px";
+    contextElement.style.left = event.offsetX + "px";
+    contextElement.classList.add("active");
+  });
+  window.addEventListener("click",function(){
+    document.getElementById("cm").classList.remove("active");
+  });
+  ///////////////////////////////////////////////////
+  function about() {
+      document.getElementById('weos').style ="display: block;width: 450px;height: 500px;";
+  }
+  function newfile() {
+      document.getElementById('yendo').style ="display: block;text-align: center;";
+  }
+  function newfolder() {
+      document.getElementById('yenko').style ="display: block;text-align: center;";
+  }
+  function getpro() {
+      document.getElementById('getpro').style="display: block;";
+  }
+//© Tüm hakları saklıdır.//
+</script>
+</head> 
+<body id="bdy" ondragstart="return false">
+<div style="z-index: 999999999999999999999999999;position: fixed;bottom: 30px;font-size: 9px;width: 300px;right: 20px;background: transparent;color: rgb(225 225 225 / 72%); ">
+<h1 style="z-index: 999999999999999999999999999;position: fixed;bottom: 30px;font-size: 15px;width: 300px;right: 20px;background: transparent;color: rgb(225 225 225 / 72%); ">Lütfen Gelıma OS PRO'ya Yükseltin.</h1>
+</div>
+<div style="display: none;" id="getpro">
+    Lütfen Bu Özellikden Yararlanmak için Gelıma OS PRO'ya Yükseltin.
+    <br>
+    <center><button onclick="document.getElementById('getpro').style='display: none;'" style="border: none;border-radius: 20px;color: white;background-color: dodgerblue;padding: 8px;cursor: url('isaretcifare.png'), pointer;">Tamam</button></center>
+</div>
+<div id="cm">
+<a onclick="newfile()"><div class="el"><img src="metin.png" height="10px" width="10px"> Yeni Dosya</div></a>
+<a onclick="newfolder()"><div class="el"><img src="dosyalar logo.png" height="10px" width="10px"> Yeni Klasör</div></a>
+<a onclick="getpro()"><div class="el" style="color: rgb(0, 0, 0, 0.52);"><img src="lightmode.png" height="10px" width="10px"> Koyu Tema</div></a>
+<a onclick="pastle()"><div class="el"><img src="copy.png" height="10px" width="10px"> Kopyala</div></a>
+<a onclick="copy()"><div class="el"><img src="pastle.png" height="10px" width="10px"> Yapıştır</div></a>
+<a onclick="about()"><div class="el"><img src="hak.png" height="10px" width="10px"> Hakkında</div></a>
+</div>
+<div id="acilis" style="background-image: url('acilis-ekran/ap.png');border: none;top: 0;left: 0;" onclick="document.getElementById('acilis').style = 'display: none;';">
+<div id="hosumagitti">
+<h1 id="saat"></h1>
+</div>
+</div>
+<div id="arac" style="bottom: 0px;">
+<a onclick="document.getElementById('menu').style='display: block;height: 500px;width: 600px;border: solid 1px;position: absolute;bottom: 40px;border-radius: 10px;';">
+<img style="width: 30px;height: 30px;border: none;background: none;border-radius: 0%;" src="Gelima OS.png">
+</a>
+<a onclick="document.getElementById('tryc').style='display: block;';">
+<img src="Tarayici.png" height="30px" width="30px">
+</a>
+<a onclick="document.getElementById('not').style='display: block;';">
+<img src="metin.png" height="30px" width="30px">
+</a>
+<a  onclick="document.getElementById('trmnl').style='display: block;background-color: rgb(0, 0, 0);border: solid 1px;height: 450px;width: 500px;color: white;'">
+<img src="Terminal.png" height="30px" width="30px">
+</a>
+<a onclick="document.getElementById('').style='display: block;';">
+<img src="boyama.png" height="30px" width="30px">
+</a>
+<a onclick="document.getElementById('myfiles').style='display: block;';">
+<img src="dosyalar logo.png" height="30px" width="30px">
+</a>
+<a onclick="document.getElementById('getpro').style='display: block;'" style="position: absolute;top: 5px;margin-left: 5px;"><div id="div" width="25px" height="29px"><span id="divici">&#9679;</span></div></a>
+<div id="trh"></div>
+</div>
+<div id="msut">
+<a class="myos" style="text-align: center;" ondblclick="document.getElementById('weos').style='height: 450px;width: 500px;color: black;display: block;';"><img src="metin.png" width="50px" height="50px"><span class="despro">İşletim Sistemi.yazı</span></a>
+<a id="yendo" style="display: none;" class="myos" style="text-align: center;" ondblclick="document.getElementById('not').style='height: 450px;width: 500px;color: black;display: block;';"><img src="metin.png" width="50px" height="50px"><span class="despro"><br>Yeni Dosya.yazı</span></a>
+<a id="yenko" style="display: none;" class="myos" style="text-align: center;" ondblclick="document.getElementById('myfiles').style='display: block;';"><img src="dosyalar logo.png" width="50px" height="50px"><span class="despro"><br>Yeni Klasör</span></a>
+</div>
+<div id="menu" style="border: solid 1x;border-color: black;display: none;font-size: 29px;"><br>
+<a id="txt" style="cursor: url('isaretcifare.png'), pointer;" title="Metin Düzenleyici" onclick="document.getElementById('not').style='display:block;position:absolute;left:0px;bottom:100px;';document.getElementById('menu').style='display:none;'"><img src="notpad.png" width="25px" height="29px"><span class="txtop">Metin Düzenleyici</span></a><br>
+<a onclick="document.getElementById('').style='display: ;'" id="boy" style="cursor: url('isaretcifare.png'), pointer;" title="Boya"><img src="boyama.png" width="25px" height="29px"><span class="txtop">Boya</span></a><br>
+<a id="file" style="cursor: url('isaretcifare.png'), pointer;" title="Dosyalar" onclick="document.getElementById('myfiles').style='width:450px;height:500px;border:solid 1px;display: inline-block;';document.getElementById('menu').style='display: none;'"><img src="dosyalar logo.png" width="25px" height="29px"><span class="txtop">Dosyalar</span></a><br>
+<a id="cnsl" style="cursor: url('isaretcifare.png'), pointer;" onclick="document.getElementById('trmnl').style='display: block;background-color: rgb(0, 0, 0);border: solid 1px;height: 450px;width: 500px;color: white;';document.getElementById('menu').style='display: none;'" title="Terminal"><img src="Terminal.png" width="25px" height="29px"><span class="txtop">Terminal</span></a><br>
+<a id="trycac" style="cursor: url('isaretcifare.png'), pointer;" onclick="document.getElementById('tryc').style='display:block;';document.getElementById('menu').style='display:none;'" title="Tarayıcı"><img src="Tarayici.png" width="25px" height="29px"><span class="txtop">Tarayıcı</span></a><br>
+<a onclick="document.getElementById('getpro').style='display: block;';document.getElementById('menu').style='display: none;'" style="cursor: url('isaretcifare.png'), pointer;" title="Ayarlar"><div id="div" width="25px" height="29px"><span id="divici">&#9679;</span></div><span id="ad">Ayarlar</span></a>
+<div style="bottom: 20px;position: absolute;border-top: solid 1px gray;width: 200px;">
+<button id="rbot" style="cursor: url('isaretcifare.png'), pointer;" onclick="window.location.reload(false)" title="Yeniden Başlat">Yeniden Başlat</button><br>
+<button id="pckpt" style="cursor: url('isaretcifare.png'), pointer;" onclick="document.getElementById('cr1').style='display: none;cursor: none;';" title="Kapat">Kapat</button><br>
+<button id="kpt" style="cursor: url('isaretcifare.png'), pointer;" onclick="document.getElementById('menu').style='display:none;';" title="Çık">Çık</button></div>
+<div style="border: solid 1px;color: gray;height: 499px;width: 0;position: absolute;left: 200px;top: -1px;"></div>
+<span style="position: absolute;left: 205px;top: 0px;font-size: 20px;">Keşfet</span>
+<div onclick="document.getElementById('havalarnasilmiis').style='display: block;background-color: white;height: 150px;width: 500px;position: absolute;top: 0;left: 0;';document.getElementById('menu').style='display: none;'" style="background-image: url('hava.png');top: 25px;left: 205px;" class="naber"><span class="naberitem">Hava</span></div>
+<div style="background-image: url('Gelima OS.png');top: 25px;left: 310px;background-size: cover;width: 285px;" class="naber"><span class="naberitem">Haberler</span></div>
+<span style="position: absolute;left: 205px;top: 130px;font-size: 20px;">Üret</span>
+<div style="background-image: url('boyama.png');top: 150px;left: 205px;" class="naber"><span class="naberitem">Boya</span></div>
+<div onclick="document.getElementById('myfiles').style='width:450px;height:500px;border:solid 1px;display: inline-block;';document.getElementById('menu').style='display: none;'" style="background-image: url('dosyalar logo.png');top: 150px;left: 310px;background-size: cover;width: 100px;" class="naber"><span class="naberitem">Dosyalarınız</span></div>
+<div onclick="document.getElementById('not').style='display:block;position:absolute;left:0px;bottom:100px;';document.getElementById('menu').style='display:none;'" style="background-image: url('metin.png');top: 150px;left: 415px;background-size: 100% 100%;width: 100px;" class="naber"><span class="naberitem">Metin Düzenleyici</span></div>
+<span style="position: absolute;left: 205px;top: 255px;font-size: 20px;">Diğer</span>
+<div  onclick="document.getElementById('getpro').style='display: block;';document.getElementById('menu').style='display: none;'" style="background-image: url('aygo.png');top: 275px;left: 205px;background-size: 100% 100%;width: 100px;" class="naber"><span class="naberitem">Ayarlar</span></div>
+<div onclick="document.getElementById('trmnl').style='display: block;background-color: rgb(0, 0, 0);border: solid 1px;height: 450px;width: 500px;color: white;';document.getElementById('menu').style='display: none;'" style="background-image: url('Terminal.png');top: 275px;left: 310px;background-size: 100% 100%;width: 100px;" class="naber"><span class="naberitem" >Terminal</span></div>
+<div style="background-image: url('Tarayici.png');top: 275px;left: 415px;background-size: 100% 100%;width: 100px;" class="naber"><span class="naberitem">Tarayıcı</span></div>
+</div>
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--Tarayıcı-->
+<div id="tryc" style="width: 100%;height: auto;bottom: 35px;top: 0;">
+    <a class="kptstil" onclick="document.getElementById('tryc').style='display: none;'">&#10060;</a>
+    <a class="guccukstil" id="trycbuyu" onclick="document.getElementById('tryc').style='width:100%;height: auto;top: 0;display: block;bottom: 35px;';document.getElementById('trycgucuk').style='display: inline;';document.getElementById('trycbuyu').style='display: none;'">&#9723;</a>
+    <a class="guccukstil" width="25px" height="20px" id="trycgucuk" style="display:none;" onclick="document.getElementById('tryc').style='width:450px;height:500px;border:solid 1px;display: inline-block;';document.getElementById('trycgucuk').style='display: none;';document.getElementById('trycbuyu').style='display: inline;'">&#9723;</a>
+    <img style="vertical-align: text-bottom;" src="Tarayici.png" width="25px" height="20px">Tarayıcı
+    <br>
+    <div id="arru">
+    <center>
+    <img src="Gelima OS.png" width="50px" height="50px"> 
+    <div style="top: 51px;">
+    <input style="cursor: url('yazifare.png'), auto;" placeholder="Aramak istediğinizi yazın..." type="text" id="ara">
+    <button style="cursor: url('fare.png'), default;" onclick="mybobus()" id="basara">Ara</button></div>
+    </center>
+    </div>
+<style>
+#ara {
+  border-radius: 20px;
+transition: 0.20s;
+  width: 180px;
+  
+}
+#ara:active {
+  width: 190px;
+}
+#basara {
+  background-color: blue;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  height: 23px;
+}
+#aracikti {
+  diplay: none;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+}
+</style>
+<script>
+function mybobus() {
+document.getElementById('aracikti').style="display: block;"
+document.getElementById('aracikti').innerHTML="Özür Dilerim.Aradığınız Şeyi Bulamadım.Galiba Bir Hata Oluştu."
+document.getElementById('arru').style="display: none;"
+}
+</script>
+<div id="aracikti"></div>
+</div>
+<!--/Tarayıcı-->
+<!--Dosyalar-->
+<div id="myfiles">
+<div class="cekmece">
+<a class="kptstil" onclick="document.getElementById('myfiles').style='display: none;'">&#10060;</a>
+<a class="guccukstil" id="filebuyu" onclick="document.getElementById('myfiles').style='width:100%;height:auto;top: 0;bottom: 35px;display: inline-block;';document.getElementById('filegucuk').style='display: inline;';document.getElementById('filebuyu').style='display: none;'">&#9723;</a>
+<a class="guccukstil" width="25px" height="20px" id="filegucuk" style="display:none;" onclick="document.getElementById('myfiles').style='width:450px;height:500px;border: solid 1px;display: inline-block;';document.getElementById('filegucuk').style='display: none;';document.getElementById('filebuyu').style='display: inline;'">&#9723;</a>
+<img style="vertical-align: text-bottom;" src="dosyalar logo.png" width="25px" height="20px">Dosyalar</div>
+</div>
+<!--/Dosyalar-->
+<!--Terminal-->
+<div id="trmnl" style="background-color: rgb(0, 0, 0);border: solid 1px;height: 450px;width: 500px;color: white;display: none;">
+<div class="cekmece">
+<a class="kptstil" onclick="document.getElementById('trmnl').style='display: none;background-color: rgb(0, 0, 0);border: solid 1px;height: 450px;width: 500px;color: white;'">&#10060;</a>
+<a class="guccukstil" id="trmnlbuyu" onclick="document.getElementById('trmnl').style='width:100%;height:auto;top: 0;bottom: 35px;display: inline-block;background-color: rgb(0, 0, 0);border: solid 1px;color: white;';document.getElementById('trmnlgucuk').style='display: inline;';document.getElementById('trmnlbuyu').style='display: none;'">&#9723;</a>
+<a class="guccukstil" width="25px" height="20px" id="trmnlgucuk" style="display:none;" onclick="document.getElementById('trmnl').style='width:450px;height:500px;border: solid 1px;display: inline-block;background-color: rgb(0, 0, 0);color: white;';document.getElementById('trmnlgucuk').style='display: none;';document.getElementById('trmnlbuyu').style='display: inline;'">&#9723;</a>
+<img style="vertical-align: text-bottom;" src="Terminal.png" width="25px" height="20px">Terminal</div>
+<span>&copy; Gelıma Yazılım. Tüm Hakları Saklıdır.</span>
+<div id="cikti"></div>
+<input ondblclick="entcmd()" title="Komutu çalıştırmak için çift tıklayın." id="tergi" style="height: 50%;background: transparent;border: none;cursor: url('yazifare.png'), auto;color: white;width: -webkit-fill-available;" type="text">
+<script>
+var mytelifscript=document.getElementById('tergi');
+function entcmd() {
+    if (mytelifscript.value=="telif") {
+        document.getElementById('cikti').innerHTML="&copy; Gelıma OS<br>Resimler <a style='color: white;' href='https://canva.com'>Canva'</a>yla yapılmıştır.<br><br>";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="temizle") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="zaman") {
+var tarihcii = new Date();
+document.getElementById('cikti').innerHTML = tarihcii;
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="yeniden başlat") {
+        window.location.reload(false)
+    }
+    else if (mytelifscript.value=="kapat") {
+        document.getElementById('bdy').style="display: none;";
+    }
+    else if (mytelifscript.value=="çık") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="diplay:none;";
+    }
+    else if (mytelifscript.value=="kırmızı") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="background-color: red;display: block;";
+    }
+    else if (mytelifscript.value=="yeşil") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="background-color: green;display: block;";
+    }
+    else if (mytelifscript.value=="mavi") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="background-color: blue;display: block;";
+    }
+    else if (mytelifscript.value=="turuncu") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="background-color: orange;display: block;";
+    }
+    else if (mytelifscript.value=="beyaz") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="background-color: white;color: black;display: block;";
+    }
+    else if (mytelifscript.value=="siyah") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="background-color: black;color: white;display: block;";
+    }
+    else if (mytelifscript.value=="hack") {
+        document.getElementById('cikti').innerHTML="Siteler kontrol ediliyor...(%100)<br>Veriler alınıyor...(%100)<br>OS Sürümü denetleniyor...(%99)<br><span style='color: red;'>Error:<br>Pro'ya yükseltilmedi.<span>";
+        document.getElementById('tergi').value="";
+        document.getElementById('getpro').style="diplay: block;z-index: 100;";
+    }
+    else if (mytelifscript.value=="terminal hava") {
+        document.getElementById('cikti').innerHTML="Merkez/Amasya Bulutlu.";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="yeni klasör-") {
+        document.getElementById('yenko').style="display: block;text-align: center;";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="diplay:none;";
+    }
+    else if (mytelifscript.value=="yeni klasör") {
+        document.getElementById('yenko').style="display: block;text-align: center;";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="sil yeni klasör-") {
+        document.getElementById('yenko').style="display: none;text-align: center;";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="diplay:none;";
+    }
+    else if (mytelifscript.value=="sil yeni klasör") {
+        document.getElementById('yenko').style="display: none;text-align: center;";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="yeni dosya-") {
+        document.getElementById('yendo').style="display: block;text-align: center;";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="diplay:none;";
+    }
+    else if (mytelifscript.value=="yeni dosya") {
+        document.getElementById('yendo').style="display: block;text-align: center;";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="sil yeni dosya-") {
+        document.getElementById('yendo').style="display: none;text-align: center;";
+        document.getElementById('tergi').value="";
+        document.getElementById('trmnl').style="diplay:none;";
+    }
+    else if (mytelifscript.value=="sil yeni dosya") {
+        document.getElementById('yendo').style="display: none;text-align: center;";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="") {
+        document.getElementById('cikti').innerHTML="Lütfen bir komut girin.<br><br>";
+        document.getElementById('tergi').value="";
+    }
+    else if (mytelifscript.value=="dosyalar") {
+        document.getElementById('myfiles').style="display: block;z-index: 100;";
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="Dosya Yöneticisi açılıyor...<br><br>";
+    }
+    else if (mytelifscript.value=="tarayıcı") {
+        document.getElementById('cikti').innerHTML="Tarayıcı açılıyor...<br><br>";
+        document.getElementById('tergi').value="";
+        document.getElementById('tryc').style="display: block;z-index: 100;";
+    }
+    else if (mytelifscript.value=="dosyalar-") {
+        document.getElementById('myfiles').style="display: block;z-index: 100;";
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="tarayıcı-") {
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('tergi').value="";
+        document.getElementById('tryc').style="display: block;z-index: 100;";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="not") {
+        document.getElementById('cikti').innerHTML="Not açılıyor...<br><br>";
+        document.getElementById('tergi').value="";
+        document.getElementById('not').style="display: block;z-index: 100;";
+    }
+    else if (mytelifscript.value=="not-") {
+        document.getElementById('not').style="display: block;z-index: 100;";
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="aç işletim sistemimiz.yazı-") {
+        document.getElementById('weos').style="height: 450px;width: 500px;color: black;display: block;";
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="aç işletim sistemimiz.yazı") {
+        document.getElementById('weos').style="height: 450px;width: 500px;color: black;display: block;";
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="işletim sistemimiz.yazı açılıyor...<br><br>";
+    }
+    else if (mytelifscript.value=="menü-") {
+        document.getElementById('menu').style='display: block;height: 500px;width: 600px;border: solid 1px;position: absolute;bottom: 40px;border-radius: 10px;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="sağ taraftan menü-") {
+        document.getElementById('menu').style='display: block;height: 500px;width: 600px;border: solid 1px;position: absolute;bottom: 40px;border-radius: 10px;left: auto;right: 10px;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="sağ tık menü-") {
+        document.getElementById('cm').classList.add("active");
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="sağ tık menü") {
+        document.getElementById('cm').classList.add("active");
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('cm').style="z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999;";
+    }
+    else if (mytelifscript.value=="sağ taraftan menü") {
+        document.getElementById('menu').style='display: block;height: 500px;width: 600px;border: solid 1px;position: absolute;bottom: 40px;border-radius: 10px;left: auto;right: 10px;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="Menü açılıyor...<br><br>";
+    }
+    else if (mytelifscript.value=="kapat menü-") {
+        document.getElementById('menu').style='display: none;height: 500px;width: 600px;border: solid 1px;position: absolute;bottom: 40px;border-radius: 10px;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else if (mytelifscript.value=="kapat menü") {
+        document.getElementById('menu').style='display: none;height: 500px;width: 600px;border: solid 1px;position: absolute;bottom: 40px;border-radius: 10px;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+    }
+    else if (mytelifscript.value=="menü") {
+        document.getElementById('menu').style='display: block;height: 500px;width: 600px;border: solid 1px;position: absolute;bottom: 40px;border-radius: 10px;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="Menü açılıyor...<br><br>";
+    }
+    else if (mytelifscript.value=="hava") {
+        document.getElementById('havalarnasilmiis').style='display: block;background-color: white;height: 150px;width: 500px;position: absolute;top: 0;left: 0;z-index: 100;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="Hava Durumu açılıyor...<br><br>";
+    }
+    else if (mytelifscript.value=="hava-") {
+        document.getElementById('havalarnasilmiis').style='display: block;background-color: white;height: 150px;width: 500px;position: absolute;top: 0;left: 0;z-index: 100;';
+        document.getElementById('tergi').value="";
+        document.getElementById('cikti').innerHTML="";
+        document.getElementById('trmnl').style="display: none;";
+    }
+    else {
+        document.getElementById('cikti').innerHTML=mytelifscript.value+" diye bir komut bulunamadı<br><br>";
+        document.getElementById('tergi').value="";
+    }
+}
+</script>
+</div>
+<!--/Terminal-->
+<!--Metin Düzenleyici-->
+<div id="not" style="border: solid 1pxheight: 450px;width: 500px;color: black;display: none;">
+<div class="cekmece">
+<a class="kptstil" onclick="document.getElementById('not').style='display: none;'">&#10060;</a>
+<a class="guccukstil" id="notbuyu" onclick="document.getElementById('not').style='width:100%;height:auto;top: 0;bottom: 35px;display: inline-block;';document.getElementById('notgucuk').style='display: inline;';document.getElementById('notbuyu').style='display: none;'">&#9723;</a>
+<a class="guccukstil" width="25px" height="20px" id="notgucuk" style="display:none;" onclick="document.getElementById('not').style='width:450px;height:500px;border: solid 1px;display: inline-block;';document.getElementById('notgucuk').style='display: none;';document.getElementById('notbuyu').style='display: inline;'">&#9723;</a>
+<img style="vertical-align: text-bottom;" src="notpad.png" width="25px" height="20px"> Metin Düzenleyici</div>
+<textarea id="notxt"></textarea>
+</div>
+<!--/Metin Düzenleyici-->
+<!--file: (class="desktop") ========>-->
+<div id="weos" style="border: solid 1pxheight: 450px;width: 500px;color: black;display: none;">
+<div class="cekmece">
+ <a class="kptstil" onclick="document.getElementById('weos').style='display: none;'">&#10060;</a>
+    <a class="guccukstil" id="weosbuyu" onclick="document.getElementById('weos').style='position: absolute;top: 0px;height: auto;bottom: 35px;width: 100%;';document.getElementById('weosgucuk').style='display: inline;';document.getElementById('weosbuyu').style='display: none;'">&#9723;</a>
+    <a class="guccukstil" width="25px" height="20px" id="weosgucuk" style="display:none;" onclick="document.getElementById('weos').style='width:450px;height:500px;';document.getElementById('weosgucuk').style='display: none;';document.getElementById('weosbuyu').style='display: inline;'">&#9723;</a>
+    <img style="vertical-align: text-bottom;" src="notpad.png" width="25px" height="20px"> İşletim Sistemi.yazı-Metin</div>
+    <span title="Bu dosya okunması içindir.Değiştirilemez." style="font-size: 12px;">
+    <b>İşletim Sistemi Hakkında</b><br>
+    Sürüm: 1<br>
+    Model: Deneme Sürümü<br>
+    Yapan: A**** E*** K***<br>
+    <b>Kurallar</b><br>
+    1.İşletim Sistemimizi kötü amaçlı kullanmak yasaktır.<br>
+    2.İşletim Sistemi dosyalarını izinsiz değiştirip yayınlamak yasaktır.<br>
+    3.İşletim Sistemimizde kötü söz vb. şeyler kullanmak yasaktır.<br>
+    4.İşletim Sistemi dosyalarını kopyalamak paylaşmak vb. yasaktır.<br>
+    <b>Bilgiler</b><br>
+    1.Tarayıcınızı 80% boyutta kullanın.<br>
+    2.Tarayıcınızı tam ekran modda kullanın.<br><br>
+    <b>&#169; Tüm hakları saklıdır.</b>
+</span>
+</div>
+<div id="havalarnasilmiis" style="display: none;background-color: white;height: 150px;width: 500px;position: absolute;left: 0px;top: 0px;">
+<a style="position: absolute;left: 475px;top: 0px;width: 20px;text-align: center;" class="kptstil" onclick="document.getElementById('havalarnasilmiis').style='display: none;'">&#10060;</a>
+<span>Merkez/Amasya Bulutlu.<span>
+</div>
+<!--<======== (class="desktop") :file-->
+<!--© Tüm hakları saklıdır.-->
+</body>
+</html>
